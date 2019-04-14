@@ -10,4 +10,5 @@ class JobsSpider(scrapy.Spider):
     def parse(self, response):
         listings = response.xpath('//a[@class="result-title hdrlnk"]/text()').extract()
         for listing in listings:
-            print(listing)
+            yield {'Listing': listing}
+        print('***********************')
